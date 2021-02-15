@@ -121,6 +121,7 @@ func initCommands() {
   addCommand("say", cmdSay)
   addCommand("shout", cmdShout)
   addCommand("gossip", cmdGossip)
+  addCommand("quit", cmdQuit)
 }
 
 func is_prefix(s, cmd string) bool {
@@ -720,11 +721,12 @@ func cmdRecall(s string, s0 string, player *Player) {
   player.Room = rooms[3001]
   fmt.Fprintf(player.Connection, "You have returned to the Temple of Midgaaurd. \n")
 }
-/*
-func quit(s string, s0 string, player *Player) {
 
+func cmdQuit(s string, s0 string, player *Player) {
+  fmt.Fprintf(player.Connection, "Catch you later now! \n")
+  player.Connection.Close()
 }
-*/
+
 /*
 From all my viewers who were kind enough to understand I couldn't stream tonight because of this assignment, I thank you.
 You all are a bunch of chads.
